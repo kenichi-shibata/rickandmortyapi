@@ -1,5 +1,47 @@
 [![The Rick and Morty API](https://repository-images.githubusercontent.com/120371205/b6740400-92d4-11ea-8a13-d5f6e0558e9b)](https://rickandmortyapi.com)
 
+# Setup
+```
+git clone git@github.com:kenichi-shibata/rickandmortyapi
+npm i 
+```
+
+setup database
+
+```
+brew tap mongodb/brew
+brew install mongodb-community@5.0
+brew services start mongodb-community@5.0
+
+mongorestore --host=localhost:27017 --db=rickmorty-test --drop ./test/data
+```
+
+start
+```
+npm start
+# open localhost:8080/api/episodes
+```
+
+try a graphql query
+```
+# open localhost:8080/graphql
+# Write your query or mutation here
+query{
+  characters {
+    info {
+      count,
+      prev,
+      pages
+    },
+    results {
+      name
+      id
+      type,
+      species
+    }
+  }
+}
+```
 # The Rick and Morty API
 
 [![Tests](https://github.com/afuh/rick-and-morty-api/workflows/Tests/badge.svg)](https://github.com/afuh/rick-and-morty-api/actions?query=workflow:Tests)
